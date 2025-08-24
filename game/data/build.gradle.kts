@@ -29,14 +29,22 @@ kotlin {
         }
     }
 
-    jvm()
+    jvm("desktop")
 
     sourceSets {
+
+        val desktopMain by getting
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
         }
+
         commonMain.dependencies {
+
+            implementation(projects.coreNetwork)
+
+            implementation(projects.game.domain)
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -49,10 +57,14 @@ kotlin {
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
-        jvmMain.dependencies {
+        desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
         }
+        iosMain.dependencies{
+
+        }
+
     }
 }
 
