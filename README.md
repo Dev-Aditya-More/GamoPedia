@@ -1,1 +1,1 @@
-Stay tuned for the screenshots :)
+Stay tuned for the updates :)
